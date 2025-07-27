@@ -1,5 +1,8 @@
 namespace com.logali;
 
+//Se define un tipo personalizado se crea con define type o solo type
+type Name : String(50);
+//luego se usa en las entidades en lugar de decir string se pone name y ya sabe que es un string de 50
 entity Products {
     key ID               : UUID;
         Name             : String;
@@ -65,6 +68,7 @@ entity ProductReviews {
 };
 
 entity SalesData {
-    key DeliveryDate : DateTime;
+    key ID           : UUID;
+        DeliveryDate : DateTime;
         Revenue      : Decimal(16, 2);
 };
