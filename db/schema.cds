@@ -3,6 +3,16 @@ namespace com.logali;
 //Se define un tipo personalizado se crea con define type o solo type
 type Name : String(50);
 //luego se usa en las entidades en lugar de decir string se pone name y ya sabe que es un string de 50
+
+//ahora un tipo estructurado
+type Address {
+    Street     : String;
+    City       : String;
+    State      : String(2);
+    PostalCode : String(5);
+    Country    : String(3);
+};
+
 entity Products {
     key ID               : UUID;
         Name             : String;
@@ -28,6 +38,31 @@ entity Suppliers {
         Email      : String;
         Phone      : String;
         Fax        : String;
+};
+//asi es como se usa un tipo estructurado,lo más recomendado
+entity Suppliers_01 {
+    key ID         : UUID;
+        Name       : String;
+        Address123 : Address;
+        Email      : String;
+        Phone      : String;
+        Fax        : String;
+};
+
+//tambien se puede definir un tipo estructurado dentro de la entidad
+entity Suppliers_02 {
+    key ID      : UUID;
+        Name    : String;
+        Address : {
+            Street     : String;
+            City       : String;
+            State      : String(2);
+            PostalCode : String(5);
+            Country    : String(3);
+        };
+        Email   : String;
+        Phone   : String;
+        Fax     : String;
 };
 
 entity Categories {
